@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t ravikuwi/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run ravikuwi/docker-react npm run test -- --coverage
+
